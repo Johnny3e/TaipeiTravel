@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:background="@drawable/rounded_frame_12dp_main_1"
+    android:layout_marginBottom="12dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        tools:text="水門何時關？北市府設多管道　民眾防汛資訊不漏接" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/black_2"
+        android:maxLines="3"
+        android:ellipsize="end"
+        tools:text="「水門何時關閉？」「紅黃線是否開放臨停？」「沙包去哪領取？」「明天會不會放假？」臺北市政府觀傳局指出，每年5月1日至11月30日為防汛期，極端氣候導致瞬間強降雨的情況也越趨頻繁。北市水利處LINE官方帳號「戀戀水綠 臺北水利」（@taipeiheo），在汛期期間提供「水情資訊查找服務」，民眾點選「警報器訂閱」並選擇住家行政里，只要住家周邊水情超過警戒值，可即時收到警報資訊，也為民眾提供自主應變相關資訊。" />
+
+</LinearLayout>
