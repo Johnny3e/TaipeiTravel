@@ -50,9 +50,13 @@
                     android:id="@+id/news1"
                     layout="@layout/news_item" />
 
-                <include layout="@layout/news_item" />
+                <include
+                    android:id="@+id/news2"
+                    layout="@layout/news_item" />
 
-                <include layout="@layout/news_item" />
+                <include
+                    android:id="@+id/news3"
+                    layout="@layout/news_item" />
 
             </LinearLayout>
         </LinearLayout>
