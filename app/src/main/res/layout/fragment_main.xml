@@ -34,31 +34,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_12dp_main_1"
                 android:padding="8dp"
                 android:text="@string/news"
                 android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
                 android:textColor="@color/white" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp">
+            <include
+                android:id="@+id/news1"
+                layout="@layout/news_item" />
 
-                <include
-                    android:id="@+id/news1"
-                    layout="@layout/news_item" />
+            <include
+                android:id="@+id/news2"
+                layout="@layout/news_item" />
 
-                <include
-                    android:id="@+id/news2"
-                    layout="@layout/news_item" />
+            <include
+                android:id="@+id/news3"
+                layout="@layout/news_item" />
 
-                <include
-                    android:id="@+id/news3"
-                    layout="@layout/news_item" />
-
-            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

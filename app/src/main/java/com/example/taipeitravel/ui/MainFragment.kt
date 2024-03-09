@@ -12,15 +12,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.taipeitravel.R
+import com.example.taipeitravel.data.model.News
 import com.example.taipeitravel.databinding.FragmentMainBinding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
-
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
@@ -38,7 +35,42 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        setEventListener()
         observeViewModel()
+    }
+
+    private fun setEventListener() = binding.run {
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.lang -> {
+                    // TODO: show dialog
+                    Toast.makeText(context, "lang", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        news1.root.setOnClickListener {
+            openNewsOnWeb(viewModel.uiState.value.news1!!)
+        }
+        news2.root.setOnClickListener {
+            openNewsOnWeb(viewModel.uiState.value.news2!!)
+        }
+        news3.root.setOnClickListener {
+            openNewsOnWeb(viewModel.uiState.value.news3!!)
+        }
+
+    }
+
+    private fun openNewsOnWeb(news: News) {
+        findNavController().navigate(
+            MainFragmentDirections.actionMainFragmentToWebFragment(
+                title = getString(R.string.news),
+                url = news.url,
+            )
+        )
     }
 
     private fun observeViewModel() {
@@ -76,19 +108,7 @@ class MainFragment : Fragment() {
     }
 
     private fun initView() = binding.run {
-        toolbar.apply {
-            setupWithNavController(findNavController())
-            setOnMenuItemClickListener { menuItem ->
-                when(menuItem.itemId) {
-                    R.id.lang -> {
-                        // TODO: show dialog
-                        Toast.makeText(context, "lang", Toast.LENGTH_SHORT).show()
-                        true
-                    }
-                    else -> false
-                }
-            }
-        }
+        toolbar.title = getString(R.string.travel_taipei)
     }
 
     override fun onDestroyView() {

@@ -8,6 +8,21 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.taipeitravel.ui.MainFragment"
-        android:label="@string/travel_taipei"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.example.taipeitravel.ui.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>
