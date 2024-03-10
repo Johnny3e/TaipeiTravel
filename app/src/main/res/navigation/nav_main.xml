@@ -7,11 +7,14 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.taipeitravel.ui.MainFragment"
+        android:name="com.example.taipeitravel.ui.main.MainFragment"
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_webFragment"
             app:destination="@id/webFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_attractionFragment"
+            app:destination="@id/attractionFragment" />
     </fragment>
     <fragment
         android:id="@+id/webFragment"
@@ -24,5 +27,18 @@
         <argument
             android:name="url"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/attractionFragment"
+        android:name="com.example.taipeitravel.ui.attraction.AttractionFragment"
+        tools:layout="@layout/fragment_attraction">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_attractionFragment_to_webFragment"
+            app:destination="@id/webFragment" />
     </fragment>
 </navigation>

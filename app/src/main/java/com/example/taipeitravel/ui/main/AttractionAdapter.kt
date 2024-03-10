@@ -1,4 +1,4 @@
-package com.example.taipeitravel.ui
+package com.example.taipeitravel.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,8 +12,12 @@ import com.example.taipeitravel.databinding.ItemAttractionBinding
 
 class AttractionAdapter : ListAdapter<Attraction, AttractionAdapter.ViewHolder>(diffCallback) {
 
-    class ViewHolder(val binding: ItemAttractionBinding) : RecyclerView.ViewHolder(binding.root) {
+    lateinit var onItemClick: (Attraction) -> Unit
 
+    inner class ViewHolder(val binding: ItemAttractionBinding) : RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.root.setOnClickListener { onItemClick(getItem(adapterPosition)) }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,11 +32,11 @@ class AttractionAdapter : ListAdapter<Attraction, AttractionAdapter.ViewHolder>(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val attraction = getItem(position)
-            holder.binding.run {
-                attraction.images.firstOrNull()?.let { Glide.with(ivPic).load(it.src).into(ivPic) }
-                tvTitle.text = attraction.name
-                content.text = attraction.introduction
-            }
+        holder.binding.run {
+            attraction.images.firstOrNull()?.let { Glide.with(ivPic).load(it.src).into(ivPic) }
+            tvTitle.text = attraction.name
+            content.text = attraction.introduction
+        }
     }
 
     companion object {

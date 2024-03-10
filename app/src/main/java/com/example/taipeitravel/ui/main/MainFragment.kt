@@ -1,4 +1,4 @@
-package com.example.taipeitravel.ui
+package com.example.taipeitravel.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -62,6 +62,14 @@ class MainFragment : Fragment() {
             openNewsOnWeb(viewModel.uiState.value.news3!!)
         }
 
+        (rvAttractions.adapter as AttractionAdapter).onItemClick = { item ->
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToAttractionFragment(
+                    title = item.name,
+                    id = item.id
+                )
+            )
+        }
     }
 
     private fun openNewsOnWeb(news: News) {
@@ -81,7 +89,6 @@ class MainFragment : Fragment() {
                 }
             }
         }
-
     }
 
     private fun updateView(uiState: MainViewModel.UiState) = binding.run {

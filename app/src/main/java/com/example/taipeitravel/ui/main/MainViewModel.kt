@@ -1,4 +1,4 @@
-package com.example.taipeitravel.ui
+package com.example.taipeitravel.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY

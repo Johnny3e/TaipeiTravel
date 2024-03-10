@@ -24,10 +24,10 @@ data class Attraction(
     @SerializedName("official_site")
     val officialSite: String,
     @SerializedName("images")
-    val images: List<Image>
+    val images: List<AttractionImage>
 )
 
-data class Image(
+data class AttractionImage(
     @SerializedName("src")
     val src: String
 )

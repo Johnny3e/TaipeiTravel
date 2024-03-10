@@ -3,4 +3,8 @@
     <string name="travel_taipei">悠遊台北</string>
     <string name="news">最新消息</string>
     <string name="attraction">遊憩景點</string>
+    <string name="open_Time">營業時間</string>
+    <string name="address">地址</string>
+    <string name="tel">連絡電話</string>
+    <string name="url">網址</string>
 </resources>

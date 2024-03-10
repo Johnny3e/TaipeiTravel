@@ -61,7 +61,11 @@ class WebFragment : Fragment() {
             javaScriptEnabled = true
             domStorageEnabled = true
         }
+
+        // 若不使用 WebViewClient, 點擊 webView 上的連結會使用預設瀏覽器開啟
         webView.webViewClient = object : WebViewClient() {
+            
+            val initialHost = Uri.parse(args.url).host
             override fun shouldOverrideUrlLoading(
                 view: WebView,
                 request: WebResourceRequest
@@ -69,7 +73,7 @@ class WebFragment : Fragment() {
                 val url = request.url
 
                 // webView 載入 url
-                if (url.host == "www.travel.taipei") return false
+                if (url.host == initialHost) return false
 
                 // webView 不載入 url
                 Intent(Intent.ACTION_VIEW, url).apply {
