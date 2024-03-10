@@ -43,15 +43,35 @@
 
             <include
                 android:id="@+id/news1"
-                layout="@layout/news_item" />
+                layout="@layout/item_news" />
 
             <include
                 android:id="@+id/news2"
-                layout="@layout/news_item" />
+                layout="@layout/item_news" />
 
             <include
                 android:id="@+id/news3"
-                layout="@layout/news_item" />
+                layout="@layout/item_news" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_12dp_main_1"
+                android:padding="8dp"
+                android:text="@string/attraction"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAttractions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_attraction"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -2,4 +2,5 @@
     <string name="app_name">TaipeiTravel</string>
     <string name="travel_taipei">悠遊台北</string>
     <string name="news">最新消息</string>
+    <string name="attraction">遊憩景點</string>
 </resources>

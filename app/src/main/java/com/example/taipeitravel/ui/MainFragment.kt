@@ -81,6 +81,7 @@ class MainFragment : Fragment() {
                 }
             }
         }
+
     }
 
     private fun updateView(uiState: MainViewModel.UiState) = binding.run {
@@ -105,10 +106,12 @@ class MainFragment : Fragment() {
             news3.title.text = uiState.news3.title
             news3.content.text = uiState.news3.content
         }
+        (rvAttractions.adapter as AttractionAdapter).submitList(uiState.attractions)
     }
 
     private fun initView() = binding.run {
         toolbar.title = getString(R.string.travel_taipei)
+        rvAttractions.adapter = AttractionAdapter()
     }
 
     override fun onDestroyView() {

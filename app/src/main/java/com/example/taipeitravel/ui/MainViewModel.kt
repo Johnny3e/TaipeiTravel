@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.taipeitravel.App
+import com.example.taipeitravel.data.model.Attraction
 import com.example.taipeitravel.data.model.News
 import com.example.taipeitravel.data.repo.TravelRepo
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,6 +22,7 @@ class MainViewModel(
         val news1: News? = null,
         val news2: News? = null,
         val news3: News? = null,
+        val attractions: List<Attraction> = emptyList()
     )
 
     private val _uiState = MutableStateFlow(UiState())
@@ -28,15 +30,25 @@ class MainViewModel(
 
     init {
         getNews()
+        getAttractions()
     }
 
-    fun getNews() = viewModelScope.launch {
+    private fun getNews() = viewModelScope.launch {
         val list = travelRepo.getNews("zh-tw")
         _uiState.update {
             it.copy(
                 list.getOrNull(0),
                 list.getOrNull(1),
                 list.getOrNull(2),
+            )
+        }
+    }
+
+    private fun getAttractions() = viewModelScope.launch {
+        val list = travelRepo.getAttractions("zh-tw")
+        _uiState.update {
+            it.copy(
+                attractions = list
             )
         }
     }

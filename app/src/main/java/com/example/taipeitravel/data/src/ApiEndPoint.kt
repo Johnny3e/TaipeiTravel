@@ -4,4 +4,5 @@ object ApiEndPoint {
     const val BASE_URL = "https://www.travel.taipei/open-api/"
 
     const val News = "{lang}/Events/News"
+    const val Attractions = "{lang}/Attractions/All"
 }

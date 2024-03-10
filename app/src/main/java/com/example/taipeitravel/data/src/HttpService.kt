@@ -1,5 +1,6 @@
 package com.example.taipeitravel.data.src
 
+import com.example.taipeitravel.data.model.AttractionResponse
 import com.example.taipeitravel.data.model.NewsResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,6 +14,9 @@ interface HttpService {
 
     @GET(ApiEndPoint.News)
     suspend fun getNews(@Path("lang") lang: String): NewsResponse
+
+    @GET(ApiEndPoint.Attractions)
+    suspend fun getAttractions(@Path("lang") lang: String): AttractionResponse
 
     companion object {
         fun create(): HttpService {
