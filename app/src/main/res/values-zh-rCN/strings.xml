@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">TaipeiTravel</string>
+    <string name="travel_taipei">悠游台北</string>
+    <string name="news">最新消息</string>
+    <string name="attraction">游憩景点</string>
+    <string name="open_Time">营业时间</string>
+    <string name="address">地址</string>
+    <string name="tel">联系电话</string>
+    <string name="url">网址</string>
+    <string name="select_language">选择语言</string>
+</resources>

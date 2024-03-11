@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    android:background="@drawable/rounded_frame_12dp_main_1"
+    android:background="@drawable/shape_rounded_frame_12dp_main_1"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:background="@drawable/rounded_12dp_main_1"
+        android:background="@drawable/shape_rounded_12dp_main_1"
         android:padding="4dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
@@ -54,7 +54,7 @@
         android:id="@+id/ivArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/arrow_right"
+        android:src="@drawable/ic_arrow_right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

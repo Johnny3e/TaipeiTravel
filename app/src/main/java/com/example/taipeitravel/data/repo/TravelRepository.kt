@@ -17,7 +17,10 @@ class TravelRepoImpl(
     private var attractions: List<Attraction> = emptyList()
 
     override suspend fun getNews(lang: String): List<News> {
-        return httpService.getNews(lang).news.subList(0, 3)
+        val response = httpService.getNews(lang)
+        val news = response.news
+        val total = response.total
+        return if (total <= 3) { news } else { news.subList(0, 3) }
     }
 
     override suspend fun getAttractions(lang: String): List<Attraction> {

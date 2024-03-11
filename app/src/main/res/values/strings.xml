@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TaipeiTravel</string>
+    <string name="app_name" translatable="false">TaipeiTravel</string>
     <string name="travel_taipei">悠遊台北</string>
     <string name="news">最新消息</string>
     <string name="attraction">遊憩景點</string>
@@ -7,4 +7,5 @@
     <string name="address">地址</string>
     <string name="tel">連絡電話</string>
     <string name="url">網址</string>
+    <string name="select_language">選擇語言</string>
 </resources>

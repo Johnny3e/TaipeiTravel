@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,9 +14,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.taipeitravel.R
+import com.example.taipeitravel.data.model.Language
 import com.example.taipeitravel.data.model.News
+import com.example.taipeitravel.databinding.DialogLanguageBinding
 import com.example.taipeitravel.databinding.FragmentMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class MainFragment : Fragment() {
 
@@ -34,6 +39,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Timber.d("onViewCreated")
         initView()
         setEventListener()
         observeViewModel()
@@ -43,8 +49,7 @@ class MainFragment : Fragment() {
         toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.lang -> {
-                    // TODO: show dialog
-                    Toast.makeText(context, "lang", Toast.LENGTH_SHORT).show()
+                    showLanguageDialog()
                     true
                 }
 
@@ -72,6 +77,25 @@ class MainFragment : Fragment() {
         }
     }
 
+    private fun showLanguageDialog() {
+        val dialogBinding = DialogLanguageBinding.inflate(layoutInflater)
+
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.select_language))
+            .setView(dialogBinding.root)
+            .show()
+
+        dialogBinding.rvLanguage.adapter = LanguageAdapter(Language.getCurrentLanguage()) {
+            changeLanguage(it)
+            dialog.dismiss()
+        }.apply { submitList(Language.supportedList) }
+    }
+
+    private fun changeLanguage(language: Language) {
+        val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(language.tag)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+    }
+
     private fun openNewsOnWeb(news: News) {
         findNavController().navigate(
             MainFragmentDirections.actionMainFragmentToWebFragment(
@@ -82,6 +106,8 @@ class MainFragment : Fragment() {
     }
 
     private fun observeViewModel() {
+        viewModel.getData(Language.getCurrentLanguage())
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect {

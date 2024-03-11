@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">TaipeiTravel</string>
+    <string name="travel_taipei">Viaja tranquilamente por Taipei</string>
+    <string name="news">últimas noticias</string>
+    <string name="attraction">Atracciones recreativas</string>
+    <string name="open_Time">Horas de trabajo</string>
+    <string name="address">DIRECCIÓN</string>
+    <string name="tel">teléfono de contacto</string>
+    <string name="url">URL</string>
+    <string name="select_language">Elige un idioma</string>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">TaipeiTravel</string>
+    <string name="travel_taipei">Du lịch thoải mái ở Đài Bắc</string>
+    <string name="news">tin mới nhất</string>
+    <string name="attraction">Các điểm vui chơi giải trí</string>
+    <string name="open_Time">Giờ kinh doanh</string>
+    <string name="address">Địa chỉ</string>
+    <string name="tel">Điện thoại liên hệ</string>
+    <string name="url">URL</string>
+    <string name="select_language">Chọn một ngôn ngữ</string>
+</resources>
